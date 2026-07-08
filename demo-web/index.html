@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PixelOrbit</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+<div class="container">
+<a class="navbar-brand fw-bold" href="#"><span class="orbit-logo">🪐</span> PixelOrbit</a>
+<div class="ms-auto">
+<a href="#demo" class="btn btn-neon btn-sm">Ver Demo</a>
+</div>
+</div>
+</nav>
+
+<header class="text-center py-5">
+<h1 class="display-4 fw-bold glitch-title">Simulador de Partículas Orbitales</h1>
+<p class="lead lead-glow">Ejemplo con Canvas, animación CSS y Bootstrap</p>
+</header>
+
+<section id="demo" class="container my-5">
+<div class="row g-4 align-items-center">
+<div class="col-lg-8">
+<canvas id="stage" height="420"></canvas>
+</div>
+<div class="col-lg-4">
+<div class="card card-dark p-3">
+<h5 class="text-uppercase" style="letter-spacing:1px">Controles</h5>
+<div class="mb-3">
+<label class="form-label">Partículas: <span id="countVal">60</span></label>
+<input type="range" class="form-range" id="countRange" min="10" max="200" value="60">
+</div>
+<div class="mb-3">
+<label class="form-label">Velocidad: <span id="speedVal">2</span></label>
+<input type="range" class="form-range" id="speedRange" min="1" max="10" value="2">
+</div>
+<button class="btn btn-neon w-100" id="toggleBtn">Pausar</button>
+</div>
+</div>
+</div>
+</section>
+
+<div class="container"><div class="divider-glow"></div></div>
+
+<section class="container my-5">
+<h2 class="text-center fw-bold mb-5" style="letter-spacing:1px">Características de la Simulación</h2>
+<div class="row g-4 text-center">
+<div class="col-md-4">
+<div class="card card-dark p-4 h-100">
+<i class="fa-solid fa-atom feature-icon"></i>
+<h5 class="mt-3">Física Orbital</h5>
+<p class="text-secondary small">Trayectorias elípticas calculadas en tiempo real sobre Canvas 2D.</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card card-dark p-4 h-100">
+<i class="fa-solid fa-wand-magic-sparkles feature-icon"></i>
+<h5 class="mt-3">Render Dinámico</h5>
+<p class="text-secondary small">Partículas con espectro de color HSL y estela de desvanecimiento.</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card card-dark p-4 h-100">
+<i class="fa-solid fa-sliders feature-icon"></i>
+<h5 class="mt-3">Control Total</h5>
+<p class="text-secondary small">Ajusta densidad y velocidad orbital al instante.</p>
+</div>
+</div>
+</div>
+</section>
+
+<div class="container"><div class="divider-glow"></div></div>
+
+<section class="container my-5">
+<h2 class="text-center fw-bold mb-5" style="letter-spacing:1px">Más ejemplos con Bootstrap</h2>
+<div class="row g-4">
+
+<div class="col-lg-6">
+<div class="card card-dark p-4 h-100">
+<h5><i class="fa-solid fa-circle-question feature-icon" style="font-size:1.3rem"></i> Preguntas frecuentes (Accordion)</h5>
+<div class="accordion mt-3" id="faqAccordion">
+<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">¿Qué motor de física usa la simulación?</button>
+</h2>
+<div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+<div class="accordion-body">Un modelo simplificado de órbitas elípticas calculado en cada fotograma con Canvas 2D.</div>
+</div>
+</div>
+<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">¿Puedo cambiar el número de partículas?</button>
+</h2>
+<div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">Sí, usa el control deslizante "Partículas" en el panel de controles de la demo.</div>
+</div>
+</div>
+<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">¿Funciona en dispositivos móviles?</button>
+</h2>
+<div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">Sí, el diseño es responsivo gracias al sistema de grillas de Bootstrap.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-lg-6">
+<div class="card card-dark p-4 h-100">
+<h5><i class="fa-solid fa-chart-simple feature-icon" style="font-size:1.3rem"></i> Estado del sistema (Progress + Badges)</h5>
+<div class="mt-3">
+<div class="d-flex justify-content-between progress-label"><span>Render Canvas</span><span>92%</span></div>
+<div class="progress mb-3"><div class="progress-bar progress-bar-green" style="width:92%"></div></div>
+<div class="d-flex justify-content-between progress-label"><span>Carga de física</span><span>68%</span></div>
+<div class="progress mb-3"><div class="progress-bar progress-bar-purple" style="width:68%"></div></div>
+<div class="mt-3">
+<span class="badge badge-neon-green me-2">Canvas 2D</span>
+<span class="badge badge-neon-purple me-2">Bootstrap 5</span>
+<span class="badge badge-neon-green me-2">Responsivo</span>
+<span class="badge badge-neon-purple">JS Vanilla</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-lg-6">
+<div class="card card-dark p-4 h-100">
+<h5><i class="fa-solid fa-layer-group feature-icon" style="font-size:1.3rem"></i> Tecnologías (Pills + Tabs)</h5>
+<ul class="nav nav-pills mt-3" id="techTab" role="tablist">
+<li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tabFront">Frontend</button></li>
+<li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tabGraf">Gráficos</button></li>
+<li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tabHost">Hosting</button></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane fade show active" id="tabFront">HTML5, CSS3 con variables personalizadas y Bootstrap 5 para el layout responsivo.</div>
+<div class="tab-pane fade" id="tabGraf">Canvas API 2D para renderizar y animar las partículas en tiempo real.</div>
+<div class="tab-pane fade" id="tabHost">Publicado como sitio estático usando GitHub Pages.</div>
+</div>
+</div>
+</div>
+
+<div class="col-lg-6">
+<div class="card card-dark p-4 h-100 d-flex flex-column justify-content-between">
+<div>
+<h5><i class="fa-solid fa-window-restore feature-icon" style="font-size:1.3rem"></i> Ventana modal</h5>
+<p class="mt-3">Ejemplo de componente Modal de Bootstrap, útil para mostrar información adicional sin salir de la página.</p>
+</div>
+<button type="button" class="btn btn-neon" data-bs-toggle="modal" data-bs-target="#infoModal">Ver información del proyecto</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<div class="modal fade" id="infoModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Acerca de PixelOrbit</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<p>PixelOrbit es una demostración académica que integra Canvas 2D, animaciones CSS y el framework Bootstrap 5, desarrollada como parte de la asignación de Investigación Aplicada DAW 2025.</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-neon" data-bs-dismiss="modal">Cerrar</button>
+</div>
+</div>
+</div>
+</div>
+
+<footer class="text-center py-4 mt-5">
+<i class="fa-solid fa-satellite-dish me-2"></i>
+<small class="text-uppercase" style="letter-spacing:2px">Investigación Aplicada DAW 2025 · Transmisión Estable</small>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

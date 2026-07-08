@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infografía · Control de versiones con Git y GitHub</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main class="sheet">
+
+  <header class="hero">
+    <svg class="hero-branches" viewBox="0 0 940 260" preserveAspectRatio="none">
+      <path d="M0,130 H940" stroke="#8fb9a0" stroke-width="2" fill="none"/>
+      <path d="M180,130 C230,130 240,70 300,70 H520" stroke="#e2571e" stroke-width="2" fill="none"/>
+      <path d="M420,70 C470,70 480,130 540,130" stroke="#e2571e" stroke-width="2" fill="none"/>
+      <path d="M360,130 C410,130 420,190 480,190 H700" stroke="#c98a10" stroke-width="2" fill="none"/>
+      <circle cx="180" cy="130" r="6" fill="#8fb9a0"/>
+      <circle cx="300" cy="70" r="6" fill="#e2571e"/>
+      <circle cx="420" cy="70" r="6" fill="#e2571e"/>
+      <circle cx="540" cy="130" r="6" fill="#e2571e"/>
+      <circle cx="360" cy="130" r="6" fill="#c98a10"/>
+      <circle cx="480" cy="190" r="6" fill="#c98a10"/>
+      <circle cx="700" cy="190" r="6" fill="#c98a10"/>
+      <circle cx="760" cy="130" r="6" fill="#8fb9a0"/>
+    </svg>
+    <div class="hero-eyebrow">Desarrollo de software · Guía visual</div>
+    <h1>Control de versiones<br>con <span class="accent">Git</span> &amp; GitHub</h1>
+    <p>Qué es un sistema de control de versiones, por qué transforma el trabajo en equipo,
+       cómo instalar un cliente en tu sistema operativo y publicar un sitio web usando GitHub como servidor.</p>
+    <div class="hero-prompt">$ git init mi-proyecto<span class="cursor"></span></div>
+  </header>
+
+  <section class="block">
+    <div class="sec-head"><span class="sec-num">01</span><h2>¿Qué es y por qué usarlo?</h2></div>
+    <div class="split">
+      <div class="defcard">
+        <h3>Sistema de control de versiones (VCS)</h3>
+        <p>Herramienta que registra cada cambio realizado en el código a lo largo del tiempo,
+           guardando "instantáneas" (commits) del proyecto. Permite volver a cualquier estado
+           anterior, ver quién cambió qué y trabajar en paralelo sin sobrescribir el trabajo de otros.
+           <strong>Git</strong> es un VCS distribuido: cada desarrollador tiene una copia completa del historial.</p>
+      </div>
+      <div class="vgrid">
+        <div class="vitem"><span class="dot">✓</span><div><strong>Historial completo</strong><span>Recupera versiones previas y compara cambios.</span></div></div>
+        <div class="vitem"><span class="dot">✓</span><div><strong>Trabajo en equipo</strong><span>Varias personas colaboran sin conflictos.</span></div></div>
+        <div class="vitem"><span class="dot">✓</span><div><strong>Ramas (branches)</strong><span>Prueba ideas sin afectar la versión estable.</span></div></div>
+        <div class="vitem"><span class="dot">✓</span><div><strong>Respaldo distribuido</strong><span>El código vive en cada máquina y en la nube.</span></div></div>
+        <div class="vitem"><span class="dot">✓</span><div><strong>Trazabilidad</strong><span>Cada cambio queda firmado por su autor.</span></div></div>
+        <div class="vitem"><span class="dot">✓</span><div><strong>Integración continua</strong><span>Base para automatizar pruebas y despliegues.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Instalación del cliente Git</h2></div>
+    <p class="lead">Elige tu sistema operativo. Al terminar, verifica la instalación con
+      <code style="font-family:var(--mono);background:var(--amber-soft);padding:2px 6px;border-radius:4px;">git --version</code>.</p>
+    <div class="install-tabs">
+
+      <div class="os win">
+        <div class="os-top"><span>⊞</span> Windows</div>
+        <div class="os-body">
+          <ol>
+            <li>Descarga <b>Git for Windows</b> desde git-scm.com.</li>
+            <li>Ejecuta el instalador (.exe) y acepta las opciones por defecto.</li>
+            <li>Se incluye <b>Git Bash</b> como terminal.</li>
+          </ol>
+          <div class="cmdline"><span class="p">$</span> git --version</div>
+        </div>
+      </div>
+
+      <div class="os mac">
+        <div class="os-top"><span>⌘</span> macOS</div>
+        <div class="os-body">
+          <ol>
+            <li>Instala <b>Homebrew</b> si no lo tienes.</li>
+            <li>Ejecuta el comando en la Terminal.</li>
+            <li>También viene con las <b>Xcode Command Line Tools</b>.</li>
+          </ol>
+          <div class="cmdline"><span class="p">$</span> brew install git</div>
+        </div>
+      </div>
+
+      <div class="os linux">
+        <div class="os-top"><span>🐧</span> Linux</div>
+        <div class="os-body">
+          <ol>
+            <li>Abre la terminal.</li>
+            <li>Usa el gestor de paquetes de tu distro.</li>
+            <li>Confirma la versión instalada.</li>
+          </ol>
+          <div class="cmdline"><span class="p">$</span> sudo apt install git</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Comandos más comunes</h2></div>
+    <div class="cmd-grid">
+
+      <div class="cmd-col">
+        <h3>Configurar &amp; iniciar</h3>
+        <div class="cmd"><code>git config</code><span class="desc">Define nombre y correo del usuario.</span></div>
+        <div class="cmd"><code>git init</code><span class="desc">Crea un repositorio nuevo en la carpeta.</span></div>
+        <div class="cmd"><code>git clone</code><span class="desc">Copia un repositorio remoto a tu equipo.</span></div>
+
+        <h3 style="margin-top:20px;">Trabajo diario</h3>
+        <div class="cmd"><code>git status</code><span class="desc">Muestra archivos modificados o pendientes.</span></div>
+        <div class="cmd"><code>git add</code><span class="desc">Prepara cambios para el próximo commit.</span></div>
+        <div class="cmd"><code>git commit -m</code><span class="desc">Guarda una instantánea con un mensaje.</span></div>
+        <div class="cmd"><code>git log</code><span class="desc">Lista el historial de commits.</span></div>
+      </div>
+
+      <div class="cmd-col">
+        <h3>Ramas</h3>
+        <div class="cmd"><code>git branch</code><span class="desc">Lista o crea ramas de trabajo.</span></div>
+        <div class="cmd"><code>git checkout</code><span class="desc">Cambia de rama o restaura archivos.</span></div>
+        <div class="cmd"><code>git merge</code><span class="desc">Une los cambios de una rama en otra.</span></div>
+
+        <h3 style="margin-top:20px;">Sincronizar con GitHub</h3>
+        <div class="cmd"><code>git remote add</code><span class="desc">Conecta tu repo local con GitHub.</span></div>
+        <div class="cmd"><code>git push</code><span class="desc">Envía tus commits al repositorio remoto.</span></div>
+        <div class="cmd"><code>git pull</code><span class="desc">Trae los cambios del remoto a tu equipo.</span></div>
+        <div class="cmd"><code>git fetch</code><span class="desc">Descarga cambios sin fusionarlos aún.</span></div>
+      </div>
+    </div>
+
+    <!-- Flujo -->
+    <div class="flow">
+      <div class="flow-title">Flujo de trabajo básico</div>
+      <svg viewBox="0 0 860 120" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#e2571e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <g font-family="IBM Plex Mono, monospace">
+          <rect x="8"  y="34" width="150" height="52" rx="9" fill="#20486b"/>
+          <text x="83"  y="58" fill="#fff" font-size="13" font-weight="600" text-anchor="middle">Directorio</text>
+          <text x="83"  y="74" fill="#a9c4dd" font-size="11" text-anchor="middle">de trabajo</text>
+
+          <rect x="238" y="34" width="150" height="52" rx="9" fill="#c98a10"/>
+          <text x="313" y="58" fill="#fff" font-size="13" font-weight="600" text-anchor="middle">Staging</text>
+          <text x="313" y="74" fill="#f7eccf" font-size="11" text-anchor="middle">git add</text>
+
+          <rect x="468" y="34" width="150" height="52" rx="9" fill="#1f7a4d"/>
+          <text x="543" y="58" fill="#fff" font-size="13" font-weight="600" text-anchor="middle">Repo local</text>
+          <text x="543" y="74" fill="#c9ecd6" font-size="11" text-anchor="middle">git commit</text>
+
+          <rect x="698" y="34" width="150" height="52" rx="9" fill="#5b3f8f"/>
+          <text x="773" y="58" fill="#fff" font-size="13" font-weight="600" text-anchor="middle">GitHub</text>
+          <text x="773" y="74" fill="#ddd0f0" font-size="11" text-anchor="middle">git push</text>
+        </g>
+        <!-- flechas -->
+        <line x1="162" y1="60" x2="230" y2="60" stroke="#e2571e" stroke-width="2" marker-end="url(#ar)"/>
+        <line x1="392" y1="60" x2="460" y2="60" stroke="#e2571e" stroke-width="2" marker-end="url(#ar)"/>
+        <line x1="622" y1="60" x2="690" y2="60" stroke="#e2571e" stroke-width="2" marker-end="url(#ar)"/>
+        <!-- pull de vuelta -->
+        <path d="M773,90 C773,110 83,110 83,90" fill="none" stroke="#8fb9a0" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+        <text x="428" y="118" fill="#8fb9a0" font-size="10.5" text-anchor="middle" font-family="IBM Plex Mono, monospace">git pull / git clone</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="block pages">
+    <div class="sec-head"><span class="sec-num">04</span><h2>Publicar un sitio web con GitHub Pages</h2></div>
+    <p class="lead">GitHub puede funcionar como servidor gratuito para sitios estáticos (HTML, CSS y JavaScript)
+       mediante <b>GitHub Pages</b>. En cinco pasos tu página estará en línea.</p>
+    <div class="steps">
+      <div class="step"><div class="n"></div><h4>Crea el repo</h4><p>Nuevo repositorio público en tu cuenta de GitHub.</p></div>
+      <div class="step"><div class="n"></div><h4>Sube tu sitio</h4><p>Coloca <code>index.html</code> y haz push del código.</p></div>
+      <div class="step"><div class="n"></div><h4>Abre Settings</h4><p>Entra a la pestaña <b>Settings › Pages</b> del repo.</p></div>
+      <div class="step"><div class="n"></div><h4>Elige la rama</h4><p>Selecciona <code>main</code> como fuente y guarda.</p></div>
+      <div class="step"><div class="n"></div><h4>¡Publicado!</h4><p>GitHub genera y sirve tu URL pública.</p></div>
+    </div>
+    <div class="url-box">https://<span class="h">tu-usuario</span>.github.io/<span class="h">tu-repositorio</span>/</div>
+  </section>
+  
+  <footer class="foot">
+    <span><span class="tag">HEAD →</span> main · Infografía de control de versiones</span>
+    <span>Git · GitHub · GitHub Pages</span>
+  </footer>
+
+</main>
+</body>
+</html>
